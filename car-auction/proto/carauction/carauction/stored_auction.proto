@@ -1,0 +1,16 @@
+syntax = "proto3";
+package carauction.carauction;
+
+option go_package = "car-auction/x/carauction/types";
+
+message StoredAuction {
+  string index = 1; 
+  uint64 duration = 2; 
+  uint64 minimumBid = 3; 
+  uint64 startTime = 4; 
+  uint64 maxBid = 5; 
+  string winner = 6; 
+  string creator = 7; 
+  bool isEnd = 8;
+}
+

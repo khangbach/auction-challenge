@@ -1,0 +1,9 @@
+syntax = "proto3";
+package carauction.carauction;
+
+option go_package = "car-auction/x/carauction/types";
+
+message SystemInfo {
+  uint64 auctionId = 1; 
+  uint64 bidId = 2;
+}

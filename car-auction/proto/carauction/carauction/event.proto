@@ -1,0 +1,32 @@
+syntax = "proto3";
+package carauction.carauction;
+
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+
+option go_package = "car-auction/x/carauction/types";
+
+message AuctionCreated {
+    string creator = 1;
+    uint64 minimumBid = 2;
+    uint64 duration = 3;
+}
+
+message BidCreated {
+    string creator = 1;
+    string auctionIndex = 2;
+    uint64 bidAmount = 3;
+}
+
+message EndAuction {
+    string creator = 1;
+    string auctionIndex = 2;
+    uint64 bidAmount = 3;
+    string winner = 5;
+}
+
+message CancelBid {
+    string creator = 1;
+    string auctionIndex = 2;
+    string bidIndex = 3;
+}

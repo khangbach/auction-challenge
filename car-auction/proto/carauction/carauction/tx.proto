@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package carauction.carauction;
+
+option go_package = "car-auction/x/carauction/types";
+
+// Msg defines the Msg service.
+service Msg {
+  rpc CreateAuction (MsgCreateAuction) returns (MsgCreateAuctionResponse);
+  rpc BidAuction    (MsgBidAuction   ) returns (MsgBidAuctionResponse   );
+  rpc CancelBid     (MsgCancelBid    ) returns (MsgCancelBidResponse    );
+}
+message MsgCreateAuction {
+  string creator    = 1;
+  uint64 minimumBid = 2;
+  uint64 duration   = 3;
+}
+
+message MsgCreateAuctionResponse {
+  string auctionIndex = 1;
+}
+
+message MsgBidAuction {
+  string creator      = 1;
+  string auctionIndex = 2;
+  uint64 bidAmount    = 3;
+}
+
+message MsgBidAuctionResponse {
+  uint64 bidAmount = 1;
+}
+
+message MsgCancelBid {
+  string creator   = 1;
+  string auctionId = 2;
+}
+
+message MsgCancelBidResponse {
+  string bidId = 1;
+}
+
